@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ragdoll Archers</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background: #002B50;
+            overflow: hidden;
+        }
+        #game-container {
+            width: 960px;
+            height: 600px;
+            margin: auto;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        canvas {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container"></div>
+    
+    <!-- Unity loader -->
+    <script src="https://cdn.jsdelivr.net/gh/script-ux-js/ragdoll-archers/Build/v84.loader.js"></script>
+    
+    <script>
+        // Initialize Unity
+        var buildUrl = "https://cdn.jsdelivr.net/gh/script-ux-js/ragdoll-archers/Build";
+        var loaderUrl = buildUrl + "/v84.loader.js";
+
+        createUnityInstance(document.getElementById("game-container"), {
+            dataUrl: buildUrl + "/v84.data",      // if needed
+            frameworkUrl: buildUrl + "/v84.framework.js", // if needed
+            codeUrl: buildUrl + "/v84.wasm",      // if needed
+            streamingAssetsUrl: "StreamingAssets",
+            companyName: "YourName",
+            productName: "Ragdoll Archers",
+            productVersion: "1.0",
+        }).then((unityInstance) => {
+            console.log("Unity loaded!");
+        }).catch((message) => {
+            alert(message);
+        });
+    </script>
+</body>
+</html>
